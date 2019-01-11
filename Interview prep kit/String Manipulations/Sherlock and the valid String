@@ -1,0 +1,58 @@
+// Complete the isValid function below.
+    static String isValid(String input) {
+       {
+        HashMap<Character,Integer> charcount = new HashMap<>();
+        
+        if (input.length() == 1 || input.length() == 0)
+        {
+            return "YES";
+        }
+        
+        for (int i =0; i<input.length();i++)
+        {
+            if (charcount.containsKey(input.charAt(i)))
+            {
+                charcount.put(input.charAt(i), charcount.get(input.charAt(i))+1);
+            }else
+            {
+                charcount.put(input.charAt(i), 1);
+            }
+        }
+        
+        ArrayList<Character> chars = new ArrayList(charcount.keySet());
+        HashSet<Integer> tempset1 = new HashSet<>();
+        for (Map.Entry<Character, Integer> map:charcount.entrySet())
+        {
+            tempset1.add(map.getValue());
+        }
+        if (tempset1.size() == 1)
+        {
+            return "YES";
+        }
+        else
+        {
+            for (char ch:chars)
+            {
+                HashMap<Character,Integer> temp = new HashMap<>();
+                temp.putAll(charcount);
+                temp.put(ch, temp.get(ch)-1);
+
+                HashSet<Integer> tempset = new HashSet<>();
+                for (Map.Entry<Character, Integer> map:temp.entrySet())
+                {
+                    if (map.getValue() != 0)
+                    {
+                    tempset.add(map.getValue());
+                    }
+                }
+                if (tempset.size() == 1)
+                {
+                    return "YES";
+                }
+            }
+        }
+        
+        return "NO";
+        
+    }
+    }
