@@ -1,5 +1,3 @@
-package edu.chai.set2;
-
 import java.util.*;
 
 public class StringLiteralsCount {
@@ -15,16 +13,7 @@ public class StringLiteralsCount {
 			output = output+inputArr[i];
 		}
 		System.out.println(output);
-		/*TreeMap<Character, Integer> temp = new TreeMap<Character, Integer>();
-		for(char c: inputArr) {
-			if(temp.containsKey(c)) {
-				temp.put(c,	temp.get(c)+1);
-			}
-			else {
-				temp.put(c, 1);
-			}
-		}
-		System.out.println(temp);*/
+
 		String out = "";
 		for(int i=0;i<output.length();i++) {
 			count = 0;
